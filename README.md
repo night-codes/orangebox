@@ -3,7 +3,6 @@ Lightweight [Node.js](http://nodejs.org) web application framework on clusters w
    
    
 ## How To Install   
-
 ```bash
 npm install --save orangebox
 ```
@@ -14,8 +13,7 @@ git clone https://github.com/mirrr/orangebox.git
 ```
    
    
-## Quick Start
-
+## Getting Started
 ```js
 var app = require('orangebox').app();
 
@@ -34,10 +32,8 @@ var app = require('orangebox').app(count);
    
    
 ## A Little More
-
 ### File server
-For this future used [node-static](https://github.com/cloudhead/node-static) Server
-
+For this future used [node-static](https://github.com/cloudhead/node-static) Server:
 ```js
 var app = require('orangebox').app();
 
@@ -55,7 +51,6 @@ Of course you need to put the picture to the folder **./public**
    
 
 ### Routing
-   
 ```js
 app.get('/test/*', function (req, res) {
   //...
