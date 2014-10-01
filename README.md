@@ -33,7 +33,7 @@ var app = require('orangebox').app(count);
    
 ## A Little More
 ### File server
-For this future used [node-static](https://github.com/cloudhead/node-static) Server:
+For this feature used [node-static](https://github.com/cloudhead/node-static) Server:
 ```js
 var app = require('orangebox').app();
 
