@@ -1,5 +1,6 @@
-[![Express Logo](https://dl.dropboxusercontent.com/u/68595887/OrangeBox.png)](https://github.com/mirrr/orangebox)   
-Light [Node.js](http://nodejs.org) web application framework on clusters with file server.
+[![OrangeBox Logo](http://msrv.su/i/OrangeBox.png)](https://github.com/mirrr/orangebox)   
+Lightweight [Node.js](http://nodejs.org) web application framework on clusters with file server.
+   
    
 ## How To Install   
 
@@ -12,7 +13,7 @@ cd ./node_modules
 git clone https://github.com/mirrr/orangebox.git
 ```
    
-
+   
 ## Quick Start
 
 ```js
@@ -30,11 +31,12 @@ After run your web server will work in 4 threads via clusters. To specify the nu
 var count = 8;
 var app = require('orangebox').app(count);
 ```
-
-  
+   
+   
 ## A Little More
 
 ### File server
+For this future used [node-static](https://github.com/cloudhead/node-static) Server
 
 ```js
 var app = require('orangebox').app();
@@ -49,8 +51,34 @@ app.get('/', function (req, res) {
 
 app.listen(8080);
 ```
-Of course you need to put the picture to the folder *public* 
+Of course you need to put the picture to the folder **./public** 
+   
 
+### Routing
+   
+```js
+app.get('/test/*', function (req, res) {
+  //...
+});
+```
+   
+```js
+app.get('/test', function (req, res) {
+  //...
+});
+```
+   
+```js
+app.get('/user/:id/:method', function (req, res) {
+  //...
+});
+```
+   
+```js
+app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
+  //...
+});
+```
 
 
 ## License
