@@ -4,7 +4,7 @@ Lightweight [Node.js](http://nodejs.org) web application framework on clusters w
    
 ## How To Install   
 ```bash
-npm install --save orangebox
+npm install orangebox
 ```
 or
 ```bash
@@ -74,8 +74,16 @@ app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
   //...
 });
 ```
+   
+   
+### Aliases In Routes
 
-
+```js
+app.alias('/favicon.ico', '/favicon-test.ico');
+```
+   
+   
+   
 ## License
    
 MIT License   
