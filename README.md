@@ -2,6 +2,7 @@
 Lightweight [Node.js](http://nodejs.org) web application framework on clusters with file server.
    
    
+
 ## How To Install   
 ```bash
 npm install orangebox
@@ -13,6 +14,7 @@ git clone https://github.com/mirrr/orangebox.git
 ```
    
    
+
 ## Getting Started
 ```js
 var app = require('orangebox').app();
@@ -23,14 +25,20 @@ app.get('/', function (req, res) {
 app.listen(8080);
 ```
    
-After run your web server will work in 4 threads via clusters. To specify the number of threads use: 
+
+After run your web server will work in 4 threads via clusters. To specify the number of threads use:   
 
 ```js
 var count = 8;
 var app = require('orangebox').app(count);
 ```
-   
-   
+    
+    
+
+# Application
+
+
+    
 ## A Little More
 ### File server
 For this feature used [node-static](https://github.com/cloudhead/node-static) Server:
@@ -47,10 +55,19 @@ app.get('/', function (req, res) {
 
 app.listen(8080);
 ```
-Of course you need to put the picture to the folder **./public** 
-   
-
+Of course you need to put the picture to the folder **./public**   
+    
+    
+    
 ### Routing
+```js
+// invoked for any requests passed to this router
+router.use(function(req, res, next) {
+  // .. some logic here ..
+  next();
+});
+```
+
 ```js
 app.get('/test/*', function (req, res) {
   //...
@@ -74,6 +91,18 @@ app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
   //...
 });
 ```
+   
+   
+
+## Settings
+The following settings are provided to alter how OrangeBox will behave:
+
+* **env** Environment mode, defaults to process.env.NODE_ENV or "development"
+* **case sensitive routing** Enable case sensitivity, disabled by default, treating "/Foo" and "/foo" as the same
+* **strict routing** Enable strict routing, by default "/foo" and "/foo/" are treated the same by the router
+* **view cache** Enables view template compilation caching, enabled in production by default
+* **view engine** The default engine extension to use when omitted
+views The view directory path, defaulting to "process.cwd() + '/views'"   
    
    
 ### Aliases In Routes
