@@ -35,11 +35,11 @@ var app = require('orangebox').app(count);
     
     
 
-# Application
 
 
-    
-## A Little More
+
+## Application    
+   
 ### File server
 For this feature used [node-static](https://github.com/cloudhead/node-static) Server:
 ```js
@@ -60,42 +60,39 @@ Of course you need to put the picture to the folder **./public**
     
     
 ### Routing
+
 ```js
 // invoked for any requests passed to this router
 router.use(function(req, res, next) {
   // .. some logic here ..
   next();
 });
-```
 
-```js
+// Will handle all requests that reference a /test
 app.get('/test/*', function (req, res) {
   //...
 });
-```
-   
-```js
+
+// Will handle all requests that reference a /test
 app.get('/test', function (req, res) {
   //...
 });
-```
-   
-```js
+
+// used named keys
 app.get('/user/:id/:method', function (req, res) {
   //...
 });
-```
-   
-```js
+
+// routing with regexp
 app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
   //...
 });
 ```
-   
+**Note:** *if your handler function has 3 parameters (with "next"), you should be use next(); in it body*
    
 
 ## Settings
-The following settings are provided to alter how OrangeBox will behave:
+Application settings variable can be set using app.set(), and retrieved using app.get(). The following settings are provided to alter how OrangeBox will behave:
 
 * **env** Environment mode, defaults to process.env.NODE_ENV or "development"
 * **case sensitive routing** Enable case sensitivity, disabled by default, treating "/Foo" and "/foo" as the same
