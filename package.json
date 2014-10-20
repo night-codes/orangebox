@@ -1,6 +1,6 @@
 {
   "name": "orangebox",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Lightweight Node.js web application framework on clusters with file server",
   "homepage": "https://github.com/mirrr/orangebox",
   "author": {
@@ -24,7 +24,8 @@
     "keygrip": "1.0.1",
     "microtime-nodejs": "1.0.0",
     "node-static": "0.7.6",
-    "path-to-regexp": "1.0.1"
+    "path-to-regexp": "1.0.1",
+    "swig": "*"
   },
   "licenses": [
     {
@@ -51,6 +52,6 @@
   "bugs": {
     "url": "https://github.com/mirrr/orangebox/issues"
   },
-  "_id": "orangebox@0.0.2",
+  "_id": "orangebox@0.1.0",
   "readmeFilename": "README.md"
 }
