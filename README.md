@@ -100,7 +100,7 @@ app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
 **Note:** *if your handler function has 3 parameters (with "next"), you should be use next(); in it body*
    
 
-## Settings
+### Settings
 Application settings variable can be set using app.set(), and retrieved using app.get(). The following settings are provided to alter how OrangeBox will behave:
 
 * **env** Environment mode, defaults to process.env.NODE_ENV or "development"
@@ -121,7 +121,7 @@ app.alias('/favicon.ico', '/favicon-test.ico');
    
 ## People
 
-Author and developer of OrangeBox is [Oleksiy Chechel](https://github.com/mirrr)   
+Author and developerof OrangeBox is [Oleksiy Chechel](https://github.com/mirrr)   
    
 [List of all contributors](https://github.com/mirrr/orangebox/graphs/contributors)
 
