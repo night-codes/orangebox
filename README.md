@@ -7,12 +7,7 @@ Lightweight [Node.js](http://nodejs.org) web application framework on clusters w
 ```bash
 npm install orangebox
 ```
-or
-```bash
-cd ./node_modules
-git clone https://github.com/mirrr/orangebox.git
-```
-   
+
    
 
 ## Getting Started
@@ -124,6 +119,14 @@ app.alias('/favicon.ico', '/favicon-test.ico');
    
    
    
+## People
+
+Author and developer of OrangeBox is [Oleksiy Chechel](https://github.com/mirrr)   
+   
+[List of all contributors](https://github.com/mirrr/orangebox/graphs/contributors)
+
+
+
 ## License
    
 MIT License   

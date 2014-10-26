@@ -7,13 +7,8 @@
 ```bash
 npm install orangebox
 ```
-або
-```bash
-cd ./node_modules
-git clone https://github.com/mirrr/orangebox.git
-```
    
-   
+
 
 ## Початок роботи
 ```js
@@ -129,6 +124,14 @@ app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
 ```js
 app.alias('/favicon.ico', '/favicon-test.ico');
 ```
+   
+   
+   
+## Люди
+
+Автор та розробник OrangeBox - [Олексій Чечель](https://github.com/mirrr)   
+   
+[Всі розробники](https://github.com/mirrr/orangebox/graphs/contributors)   
    
    
    
