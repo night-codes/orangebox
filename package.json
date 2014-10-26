@@ -23,6 +23,7 @@
     "forwarded-for": "*",
     "keygrip": "1.0.1",
     "microtime-nodejs": "1.0.0",
+    "mime-types": "*",
     "node-static": "0.7.6",
     "path-to-regexp": "1.0.1",
     "swig": "*"
