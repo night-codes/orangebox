@@ -45,10 +45,9 @@ For this feature used [node-static](https://github.com/cloudhead/node-static) Se
 ```js
 var app = require('orangebox').app();
 
-// Creating a file server
+// Creating a file server for serving files under a directory
 app.fileServer(__dirname + '/public');
 
-// Serving files under a directory
 app.get('/', function (req, res) {
   res.send('<img src="my.jpg" />');
 });
@@ -70,7 +69,7 @@ app.get('/attach/*.jpg', function (req, res) {
 
 app.listen(8080);
 ```
-Of course you need to put the picture to the folder **./public**   
+Of course you need to put the pictures to the folder **./public**   
     
     
     
@@ -114,7 +113,7 @@ Application settings variable can be set using app.set(), and retrieved using ap
 * **strict routing** Enable strict routing, by default "/foo" and "/foo/" are treated the same by the router
 * **view cache** Enables view template compilation caching, enabled in production by default
 * **view engine** The default engine extension to use when omitted
-views The view directory path, defaulting to "process.cwd() + '/views'"   
+* **views** The view directory path, defaulting to "process.cwd() + '/views'"   
    
    
 ### Aliases In Routes
