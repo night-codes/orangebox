@@ -1,6 +1,6 @@
 {
   "name": "orangebox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lightweight Node.js web application framework on clusters with file server",
   "homepage": "https://github.com/mirrr/orangebox",
   "author": {
@@ -52,6 +52,6 @@
   "bugs": {
     "url": "https://github.com/mirrr/orangebox/issues"
   },
-  "_id": "orangebox@0.1.0",
+  "_id": "orangebox@0.1.1",
   "readmeFilename": "README.md"
 }

@@ -26,7 +26,7 @@ app.listen(8080);
 ```
    
 
-After run your web server will work in 4 threads via clusters. To specify the number of threads use:   
+After run your web server will be working in 3 threads via clusters. To specify the number of threads use:   
 
 ```js
 var count = 8;
@@ -48,9 +48,24 @@ var app = require('orangebox').app();
 // Creating a file server
 app.fileServer(__dirname + '/public');
 
+// Serving files under a directory
 app.get('/', function (req, res) {
-  res.setHeader('Content-Type', 'text/html');
-  res.send('<img src="my.png" />');
+  res.send('<img src="my.jpg" />');
+});
+
+// Transfer the file at the given path.  
+app.get('/i/send.jpg', function (req, res) {
+  res.sendFile(__dirname + '/public/send.jpg');
+});
+
+// Transfer the file as attachment at the given path. 
+app.get('/i/attachment.jpg', function (req, res) {
+  res.attachment(__dirname + '/public/send.jpg', "attachment.jpg");
+});
+
+// Serving files as attachments under a directory 
+app.get('/attach/*.jpg', function (req, res) {
+  res.attachment(__dirname + '/public/' + req.params[0] +'.jpg', "attachment-" + req.params[0] + ".jpg");
 });
 
 app.listen(8080);
