@@ -29,12 +29,83 @@ var app = require('orangebox').app(count);
 ```
     
     
-
-
-
-
+    
 ## Application    
+  
+  
+### Routing
+
+```js
+// invoked for any requests passed to this router
+router.use(function(req, res, next) {
+  // .. some logic here ..
+  next();
+});
+
+// Will handle all requests that reference a /test
+app.get('/test/*', function (req, res) {
+  //...
+});
+
+// Will handle all requests that reference a /test
+app.get('/test', function (req, res) {
+  //...
+});
+
+// used named keys
+app.get('/user/:id/:method', function (req, res) {
+  //...
+});
+
+// routing with regexp
+app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
+  //...
+});
+```
+**Note:** *if your handler function has 3 parameters (with "next"), you should be use next(); in it body*   
    
+   
+### Middleware 
+Mount the middleware function(s) at the path. If path is not specified, it defaults to "*".   
+    
+```js
+// this middleware will be executed for every request to the app
+app.use('*', function (req, res, next) {
+  console.log('Time: %d', Date.now());
+  next();
+})
+```
+    
+Middleware functions are executed sequentially, therefore the order of middleware inclusion is important.
+    
+```js
+// this middleware will not allow the request to go beyond it
+app.use(function(req, res, next) {
+  res.send('Hello World');
+})
+
+// requests will never reach this route
+app.get('/test', function (req, res) {
+  res.send('Hello World 2');
+})
+```
+    
+An orangebox app is a valid middleware.
+    
+```js
+var orangeBox = require('orangebox');
+var app       = orangeBox.app();
+var subApp    = orangeBox.app();
+
+subApp.get('/news', function (req, res, next) {
+  res.send('This news middleware');
+});
+
+app.use(subApp);
+```
+    
+    
+
 ### File server
 For this feature used [node-static](https://github.com/cloudhead/node-static) Server:
 ```js
@@ -65,39 +136,7 @@ app.get('/attach/*.jpg', function (req, res) {
 app.listen(8080);
 ```
 Of course you need to put the pictures to the folder **./public**   
-    
-    
-    
-### Routing
 
-```js
-// invoked for any requests passed to this router
-router.use(function(req, res, next) {
-  // .. some logic here ..
-  next();
-});
-
-// Will handle all requests that reference a /test
-app.get('/test/*', function (req, res) {
-  //...
-});
-
-// Will handle all requests that reference a /test
-app.get('/test', function (req, res) {
-  //...
-});
-
-// used named keys
-app.get('/user/:id/:method', function (req, res) {
-  //...
-});
-
-// routing with regexp
-app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
-  //...
-});
-```
-**Note:** *if your handler function has 3 parameters (with "next"), you should be use next(); in it body*
    
 
 ### Settings

@@ -29,48 +29,10 @@ var app = require('orangebox').app(count);
 ```
     
     
-
-
-
+    
 ## Веб-додаток    
-   
-### Файловий сервер
-Для надання цієї можливості використовується модуль [node-static](https://github.com/cloudhead/node-static):
-```js
-var app = require('orangebox').app();
-
-// Створення файлового серверу
-// Можливо створення кількох серверів для різних тек, при пошуку файлів 
-// використовуються всі теки в черзі. Необов'язковий другий параметр
-// задає можливість розшарити підтеку.
-app.fileServer(__dirname + '/public');
-
-app.get('/', function (req, res) {
-  res.send('<img src="my.jpg" />');
-});
-
-// Передача файлу по даному шляху.
-app.get('/i/send.jpg', function (req, res) {
-  res.sendFile(__dirname + '/public/send.jpg');
-});
-
-// Передача файлу по даному шляху як вкладення. 
-app.get('/i/attachment.jpg', function (req, res) {
-  res.attachment(__dirname + '/public/send.jpg', "attachment.jpg");
-});
-
-// Обслуговування файлів в вигляді вкладень за заданої директорії
-app.get('/attach/*.jpg', function (req, res) {
-  res.attachment(__dirname + '/public/' + req.params[0] +'.jpg', 
-    "attachment-" + req.params[0] + ".jpg");
-});
-
-app.listen(8080);
-```
-Звісно, ви повинні покласти зображення до теки **./public**   
-    
-    
-    
+  
+  
 ### Маршрутизація
 
 ```js
@@ -107,7 +69,84 @@ app.get('/^\/commits\/(\w+)(?:\.\.(\w+))?$/', function (req, res) {
 ```
 **Note:** *функція-колбек може містити 3 параметри (третій необов’язковий параметр "next" у першому прикладі). В цьому випадку ви повинні визвати next() в тілі функції для запобігання втрат пам'яті. Якщо третій параметр не оголошений, спрацює автоматична очистка пам’яті після res.send()*
    
+   
+   
+### Проміжне ПО
+Монтування проміжних функцій. Якщо шлях не вказано, він буде "*" за замовчуванням.
 
+```js
+// ця функція буде виконана при будь-якому запиті в цьому веб-додатку
+app.use('*', function (req, res, next) {
+  console.log('Time: %d', Date.now());
+  next();
+})
+```
+   
+Функції виконуються послідовно, тому порядок їх включення важливий.
+   
+```js
+// ця функція не дозволить запиту вийти за його межі
+app.use(function(req, res, next) {
+  res.send('Hello World');
+})
+
+// запити ніколи не досягнуть цього маршруту
+app.get('/test', function (req, res) {
+  res.send('Hello World 2');
+})
+```
+
+Ви можете використовувати orangebox додаток як промiжний до основного:
+    
+```js
+var orangeBox = require('orangebox');
+var app       = orangeBox.app();
+var subApp    = orangeBox.app();
+
+subApp.get('/news', function (req, res, next) {
+  res.send('This news middleware');
+});
+
+app.use(subApp);
+```
+    
+    
+    
+### Файловий сервер
+Для надання цієї можливості використовується модуль [node-static](https://github.com/cloudhead/node-static):
+```js
+var app = require('orangebox').app();
+
+// Створення файлового серверу
+// Можливо створення кількох серверів для різних тек, при пошуку файлів 
+// використовуються всі теки в черзі. Необов'язковий другий параметр
+// задає можливість розшарити підтеку.
+app.fileServer(__dirname + '/public');
+
+app.get('/', function (req, res) {
+  res.send('<img src="my.jpg" />');
+});
+
+// Передача файлу по даному шляху.
+app.get('/i/send.jpg', function (req, res) {
+  res.sendFile(__dirname + '/public/send.jpg');
+});
+
+// Передача файлу по даному шляху як вкладення. 
+app.get('/i/attachment.jpg', function (req, res) {
+  res.attachment(__dirname + '/public/send.jpg', "attachment.jpg");
+});
+
+// Обслуговування файлів в вигляді вкладень за заданої директорії
+app.get('/attach/*.jpg', function (req, res) {
+  res.attachment(__dirname + '/public/' + req.params[0] +'.jpg', 
+    "attachment-" + req.params[0] + ".jpg");
+});
+
+app.listen(8080);
+```
+Звісно, ви повинні покласти зображення до теки **./public**   
+ 
 ### Налаштування
 Змінні налаштувань веб-додатка можуть бути встановлені ​​за допомогою app.set(), і прочитані за допомогою app.get(). Наступні налаштування призначені для зміни поведінки OrangeBox:
 
