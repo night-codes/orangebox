@@ -160,7 +160,7 @@ app.alias('/favicon.ico', '/favicon-test.ico');
    
 ## People
 
-Author and developerof OrangeBox is [Oleksiy Chechel](https://github.com/mirrr)   
+Author and developer of OrangeBox is [Oleksiy Chechel](https://github.com/mirrr)   
    
 [List of all contributors](https://github.com/mirrr/orangebox/graphs/contributors)
 
