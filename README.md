@@ -138,6 +138,23 @@ app.listen(8080);
 Of course you need to put the pictures to the folder **./public**   
 
    
+### File upload  
+```js
+var app = require('orangebox').app();
+
+app.get('/', function (req, res) {
+  res.send('<form action="/upload" enctype="multipart/form-data" method="post">'+
+    '<input type="text" name="title"><br>'+
+    '<input type="file" name="upload" multiple="multiple"><br>'+
+    '<input type="submit" value="Upload!">'+
+    '</form>');
+});
+app.post('/upload', function (req, res) {
+  res.send([req.files, req.body]);
+});
+app.listen(8080);
+```
+
 
 ### Settings
 Application settings variable can be set using app.set(), and retrieved using app.get(). The following settings are provided to alter how OrangeBox will behave:

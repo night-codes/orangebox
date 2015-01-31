@@ -147,6 +147,26 @@ app.listen(8080);
 ```
 Звісно, ви повинні покласти зображення до теки **./public**   
  
+
+### Завантаження файлів на сервер
+```js
+var app = require('orangebox').app();
+
+app.get('/', function (req, res) {
+  res.send('<form action="/upload" enctype="multipart/form-data" method="post">'+
+    '<input type="text" name="title"><br>'+
+    '<input type="file" name="upload" multiple="multiple"><br>'+
+    '<input type="submit" value="Upload!">'+
+    '</form>');
+});
+app.post('/upload', function (req, res) {
+  res.send([req.files, req.body]);
+});
+app.listen(8080);
+```
+
+
+
 ### Налаштування
 Змінні налаштувань веб-додатка можуть бути встановлені ​​за допомогою app.set(), і прочитані за допомогою app.get(). Наступні налаштування призначені для зміни поведінки OrangeBox:
 
