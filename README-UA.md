@@ -193,7 +193,7 @@ app.alias('/favicon.ico', '/favicon-test.ico');
    
    
    
-## Люди
+## Розробники
 
 Автор та розробник OrangeBox - [Олексій Чечель](https://github.com/mirrr)   
    
