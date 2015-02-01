@@ -152,6 +152,10 @@ app.listen(8080);
 ```js
 var app = require('orangebox').app();
 
+app.set('multiparty autoFiles', true);
+app.set('multiparty maxFilesSize', 250000);
+app.set('multiparty uploadDir', __dirname + '/admin/files');
+
 app.get('/', function (req, res) {
   res.send('<form action="/upload" enctype="multipart/form-data" method="post">'+
     '<input type="text" name="title"><br>'+
@@ -176,6 +180,9 @@ app.listen(8080);
 * **view cache** Увімкнути кеш для шаблонізатора, включений в production за замовчуванням
 * **view engine** Дефолтний рушій веб-додатку. 
 * **views** Шлях перегляду каталогів, за замовчуванням "process.cwd() + '/views'"   
+* **multiparty autoFiles** Вмикає додатковi умови завантаження.
+* **multiparty maxFilesSize** Береться до уваги, коли `multiparty autoFiles` дорiвнює _true_. Обмежує загальну кількість байтів, прийнятих для всіх файлів разом узятих. За замовчуванням - нескінченність.
+* **multiparty uploadDir** Береться до уваги, коли `multiparty autoFiles` дорiвнює _true_. Каталог для розміщення завантаженних файлів (повинен бути створений заздалегідь). Згодом ви можете переміщати їх за допомогою fs.rename(). За замовчуванням - os.tmpDir(). 
    
    
 ### Псевдоніми в маршрутизації

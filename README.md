@@ -142,6 +142,10 @@ Of course you need to put the pictures to the folder **./public**
 ```js
 var app = require('orangebox').app();
 
+app.set('multiparty autoFiles', true);
+app.set('multiparty maxFilesSize', 250000);
+app.set('multiparty uploadDir', __dirname + '/admin/files');
+
 app.get('/', function (req, res) {
   res.send('<form action="/upload" enctype="multipart/form-data" method="post">'+
     '<input type="text" name="title"><br>'+
@@ -164,7 +168,10 @@ Application settings variable can be set using app.set(), and retrieved using ap
 * **strict routing** Enable strict routing, by default "/foo" and "/foo/" are treated the same by the router
 * **view cache** Enables view template compilation caching, enabled in production by default
 * **view engine** The default engine extension to use when omitted
-* **views** The view directory path, defaulting to "process.cwd() + '/views'"   
+* **views** The view directory path, defaulting to "process.cwd() + '/views'"
+* **multiparty autoFiles** Enable additional loading conditions.
+* **multiparty maxFilesSize** Only relevant when `multiparty autoFiles` is true. Limits the total bytes accepted for all files combined. The default is Infinity.
+* **multiparty uploadDir** Only relevant when `multiparty autoFiles` is true. The directory for placing file uploads in (must be created in advance). You can move them later using fs.rename(). Defaults to os.tmpDir().   
    
    
 ### Aliases In Routes
