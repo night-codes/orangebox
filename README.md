@@ -169,10 +169,12 @@ Application settings variable can be set using app.set(), and retrieved using ap
 * **view cache** Enables view template compilation caching, enabled in production by default
 * **view engine** The default engine extension to use when omitted
 * **views** The view directory path, defaulting to "process.cwd() + '/views'"
-* **multiparty autoFiles** Enable additional loading conditions.
+* **multiparty autoFiles** Enable additional uploading conditions.
 * **multiparty maxFilesSize** Only relevant when `multiparty autoFiles` is true. Limits the total bytes accepted for all files combined. The default is Infinity.
 * **multiparty uploadDir** Only relevant when `multiparty autoFiles` is true. The directory for placing file uploads in (must be created in advance). You can move them later using fs.rename(). Defaults to os.tmpDir().   
-   
+* **multiparty catchError** If _true_ - upload error transferred to the `req.body.multiparty_error`, otherwise - is transferred from server response to client. 
+
+
    
 ### Aliases In Routes
 
