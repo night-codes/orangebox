@@ -172,7 +172,7 @@ Application settings variable can be set using app.set(), and retrieved using ap
 * **multiparty autoFiles** Enable additional uploading conditions.
 * **multiparty maxFilesSize** Only relevant when `multiparty autoFiles` is true. Limits the total bytes accepted for all files combined. The default is Infinity.
 * **multiparty uploadDir** Only relevant when `multiparty autoFiles` is true. The directory for placing file uploads in (must be created in advance). You can move them later using fs.rename(). Defaults to os.tmpDir().   
-* **multiparty catchError** If _true_ - upload error transferred to the `req.body.multiparty_error`, otherwise - is transferred from server response to client. 
+* **multiparty catchError** If _true_ - upload error transferred to the `req.body.multiparty_error`, otherwise it is transferred from server response to client. 
 
 
    
