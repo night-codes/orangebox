@@ -1,4 +1,4 @@
-[![OrangeBox Logo](http://msrv.su/i/OrangeBox.png)](https://github.com/mirrr/orangebox)   
+[![OrangeBox Logo](http://msrv.su/files/OrangeBox.png)](https://github.com/mirrr/orangebox)   
 Lightweight [Node.js](http://nodejs.org) web application framework on clusters with file server.
    
    
