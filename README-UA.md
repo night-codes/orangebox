@@ -1,4 +1,4 @@
-[![OrangeBox Logo](http://msrv.su/i/OrangeBox.png)](https://github.com/mirrr/orangebox)   
+[![OrangeBox Logo](http://msrv.su/files/OrangeBox.png)](https://github.com/mirrr/orangebox)   
 Легковісний [Node.js](http://nodejs.org) веб-фреймворк на основі кластерів з вбудованим файловим сервером.
    
    
