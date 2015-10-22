@@ -1,0 +1,76 @@
+{
+    "esnext" : true,
+    "disallowKeywordsInComments": ["FIXME", "README", "TODO", "BUG", "NOTE", "ATTENTION"],
+    "validateLineBreaks": "LF",
+    "validateQuoteMarks": { "mark": "'", "escape": true },
+    "requireSemicolons": true,
+    "maximumLineLength": 120,
+    "validateIndentation": "\t",
+    "disallowMixedSpacesAndTabs": "smart",
+    "disallowMultipleLineStrings": true,
+    "validateParameterSeparator": ", ",
+    "validateJSDoc": {
+        "checkParamNames": true,
+        "requireParamTypes": true
+    },
+    "disallowKeywords": [ "with" ],
+    "disallowDanglingUnderscores": { "allExcept": ["_extend", "_id"] },
+    "disallowImplicitTypeConversion": ["numeric", "boolean", "binary", "string"],
+    "disallowKeywordsOnNewLine": [ "else" ],
+    "requireSpaceBeforeKeywords": [
+        "else",
+        "while",
+        "catch"
+    ],
+    "disallowMultipleVarDecl": true,
+    "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
+    "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
+    "requirePaddingNewLinesAfterUseStrict": true,
+    "requirePaddingNewLinesBeforeExport": true,
+    "requireSpaceBeforeObjectValues": true,
+    "requireSpaceBetweenArguments": true,
+    "validateNewlineAfterArrayElements": {
+        "maximum": 5,
+        "ignoreBrackets": true
+    },
+    "requireSpaceAfterBinaryOperators": true,
+    "requireSpaceBeforeBinaryOperators": true,
+    "requireDollarBeforejQueryAssignment" : "ignoreProperties",
+    "requireSpacesInFunction": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpaceAfterKeywords": true,
+    "disallowTrailingComma": true,
+    "disallowYodaConditions": true,
+    "requireBlocksOnNewline": 1,
+    "requireDotNotation": true,
+    "requireLineFeedAtFileEnd": true,
+    "safeContextKeyword": ["that", "response"],
+    "requireSpaceBeforeBlockStatements": true,
+    "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+    "requireCommaBeforeLineBreak": true,
+    "disallowNewlineBeforeBlockStatements": true,
+    "requireSpaceAfterLineComment": true,
+    "requireSpacesInConditionalExpression": true,
+    "requireCapitalizedConstructors": true,
+    "requireCurlyBraces": [ "else", "for", "while", "do", "try", "catch" ],
+    "requireSpacesInForStatement": true,
+    "disallowSpacesInCallExpression": true,
+    "requireLineBreakAfterVariableAssignment": true,
+    "requirePaddingNewLinesAfterBlocks": {
+        "allExcept": ["inCallExpressions", "inArrayExpressions", "inProperties"]
+    },
+    "requirePaddingNewLinesBeforeLineComments": { "allExcept": "firstAfterCurly" },
+    "requirePaddingNewlinesBeforeKeywords": [
+        "do",
+        "for",
+        "if",
+        "switch",
+        "case",
+        "default",
+        "try",
+        "while",
+        "with",
+        "function"
+    ]
+}
