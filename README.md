@@ -1,6 +1,5 @@
-[![OrangeBox Logo](http://msrv.su/files/OrangeBox.png)](https://github.com/mirrr/orangebox)   
-Lightweight [Node.js](http://nodejs.org) web application framework on clusters with file server.
-   
+OrangeBox [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+=========
    
 
 ## How To Install   
